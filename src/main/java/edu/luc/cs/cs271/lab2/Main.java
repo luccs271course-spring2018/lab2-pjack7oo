@@ -43,7 +43,7 @@ public class Main {
     final Optional<Integer> index4 = Search.findTeamMinFundingFast(array, funding);
     checkTeamArrayIndex(array, index4);
   }
-  
+
   static void checkTeamArrayIndex(final Team[] array, final Optional<Integer> index) {
     // Checks the index
     if (index.isPresent()) {

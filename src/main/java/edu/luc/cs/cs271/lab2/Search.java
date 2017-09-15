@@ -24,6 +24,12 @@ public class Search {
   /** Looks for the position of the named team in a list. */
   public static Optional<Integer> findTeamPosition(final List<Team> list, final String key) {
     // TODO complete this method
+    final int size = list.size();
+    for (int i = 0; i < size; i++) {
+      if (list.get(i).equals(key)) {
+        return Optional.of(i);
+      }
+    }
     return Optional.empty();
   }
   
@@ -35,6 +41,20 @@ public class Search {
    */
   public static Optional<Integer> findTeamMinFunding(final Team[] arr, final int minFunding) {
     // TODO complete this method
+      final int size = arr.length;
+      int temp = 0;
+      boolean min = true;
+      for (int i = 0; i <size; i++) {
+          if (arr[i].getFunding() == minFunding || arr[i].getFunding() > minFunding) {
+              return Optional.of(i);
+          }
+          else if (arr[i].getFunding() < minFunding) {
+              min = false;
+          }
+        }
+      if (min == false) {
+          System.out.println("No team has at least " + minFunding + ".");
+      }
     return Optional.empty();
   }
   
@@ -54,6 +74,8 @@ public class Search {
     // Initially search the entire array
     int low = 0;
     int high = size - 1;
+
+    //if () {
     // Keep going as long as there is more than one item to be checked
     // Eliminate the wrong half of the array
     // Return current item only if it meets the condition!
