@@ -32,7 +32,7 @@ public class TestTeam {
   // TODO testConstructorValidFunding
   public void testConstructorValidFunding() {
     try {
-      new Team("USA", "Klinsmann", -1);
+      new Team("USA", "Klinsmann", 0);
       fail("should have thrown IllegalArgumentException");
     } catch (final Throwable ex) {
 

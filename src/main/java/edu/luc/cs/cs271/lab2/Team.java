@@ -19,7 +19,7 @@ public class Team {
     if (headcoach == null) {
       throw new IllegalArgumentException("headcoach is null");
     }
-    if (funding <= 0) {
+    if (funding < 1) {
       throw new IllegalArgumentException("funding is null");
     }
     // done validity checking for headcoach*
