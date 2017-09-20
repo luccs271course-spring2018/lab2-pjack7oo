@@ -65,5 +65,9 @@ public class TestSearch {
     assertFalse(Search.findTeamPosition(arr, "Team 11").isPresent());
   }
   // TODO: testFindMinFundingArray for several sizes and scenarios
+  @Test
+  public void testFindMinFundingArray300() {
+
+  }
   // TODO: testFindMinFundingArrayFast for several sizes and scenarios
 }

@@ -29,10 +29,11 @@ public class TestTeam {
 
     }
   }
-  // TODO testConstructorValidFunding
+  // done testConstructorValidFunding
+  @Test
   public void testConstructorValidFunding() {
     try {
-      new Team("USA", "Klinsmann", 0);
+      new Team("USA", "Klinsmann", -1);
       fail("should have thrown IllegalArgumentException");
     } catch (final Throwable ex) {
 
