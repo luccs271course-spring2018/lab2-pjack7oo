@@ -74,21 +74,26 @@ public class Search {
     // Initially search the entire array
     int low = 0;
     int high = size - 1;
-    int mid = (high)/2;
-    boolean run = true;
+    int mid = (low +high)/2;
+    if(arr.length == 0) {
 
-    while(run) {
+    }
+    while(low <high) {
+        mid = (low+high)/2;
+        System.out.println("mid" +mid);
 
         if (minFunding < arr[mid].getFunding()) {
-            high = mid;
-            mid = (low+high)/2;
-
+            low = mid;
+            System.out.println( "low"+low);
         }
         if (minFunding > arr[mid].getFunding()) {
-            low = low+1;
-            mid = (low+high)/2;
+            high = mid;
+            System.out.println("high" + high);
         }
         if (minFunding == arr[mid].getFunding()) {
+            return Optional.of(mid);
+        }
+        if ((high-low) <=1 && (arr[mid].getFunding() <= minFunding)) {
             return Optional.of(mid);
         }
 
@@ -97,10 +102,13 @@ public class Search {
     // Keep going as long as there is more than one item to be checked
     // Eliminate the wrong half of the array
     // Return current item only if it meets the condition!
-    if (low <= high && arr[low].getFunding() >= minFunding) {
-      return Optional.of(low);
-    } else {
+   if (low <= high && arr[low].getFunding() >= minFunding) {
+     return Optional.of(low);
+   }
+      else {
       return Optional.empty();
-    }
+   }
+
   }
+
 }
