@@ -77,8 +77,7 @@ public class Main {
       System.out.println("Funding: " + team.getFunding());
       System.out.println("Array index: " + pos);
       System.out.println("Ranking: " + (pos + 1));
-    }
-    else {
+    } else {
       final Team team = array[pos];
       System.out.println("Name: " + team.getName());
       System.out.println("Head coach: " + team.getHeadcoach());
