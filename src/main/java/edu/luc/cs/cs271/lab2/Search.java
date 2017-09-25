@@ -40,7 +40,7 @@ public class Search {
    * @post arr[result].funding >= minFunding && for all 0 <= i < result : arr[i].funding < minFunding
    */
   public static Optional<Integer> findTeamMinFunding(final Team[] arr, final int minFunding) {
-    //done TODO complete this method
+    //done  complete this method
       final int size = arr.length;
       int temp = 0;
       boolean min = true;
@@ -68,7 +68,7 @@ public class Search {
    * @post arr[result].funding >= minFunding && for all 0 <= i < result : arr[i].funding < minFunding
    */
   public static Optional<Integer> findTeamMinFundingFast(final Team[] arr, final int minFunding) {
-    // TODO complete this method
+    // done complete this method
     // Gets the array size
     final int size = arr.length;
     // Initially search the entire array
@@ -80,22 +80,23 @@ public class Search {
     }
     while(low <high) {
         mid = (low+high)/2;
-        System.out.println("mid" +mid);
 
+        if (low == mid && minFunding > arr[low].getFunding() && minFunding <= arr[high].getFunding()) {
+            return Optional.of(low+1);
+        }
         if (minFunding < arr[mid].getFunding()) {
-            low = mid;
-            System.out.println( "low"+low);
+            high = mid;
         }
         if (minFunding > arr[mid].getFunding()) {
-            high = mid;
-            System.out.println("high" + high);
+            low = mid;
         }
         if (minFunding == arr[mid].getFunding()) {
             return Optional.of(mid);
         }
-        if ((high-low) <=1 && (arr[mid].getFunding() <= minFunding)) {
-            return Optional.of(mid);
+        if (minFunding > arr[high].getFunding()) {
+            break;
         }
+
 
     }
     //if () {
@@ -104,6 +105,10 @@ public class Search {
     // Return current item only if it meets the condition!
    if (low <= high && arr[low].getFunding() >= minFunding) {
      return Optional.of(low);
+   }
+   if (low <= high && arr[high].getFunding() <minFunding) {
+        System.out.println("No team has at least " + minFunding);
+        return Optional.empty();
    }
       else {
       return Optional.empty();
